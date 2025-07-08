@@ -1,0 +1,61 @@
+// Utility classes for margin and padding (xs-xl)
+// Usage: class="p-xs", class="m-lg", etc.
+
+$paddings: (
+  0: 0,
+  xs: var(--space-xs),
+  sm: var(--space-sm),
+  md: var(--space-md),
+  lg: var(--space-lg),
+  xl: var(--space-xl),
+);
+
+@each $size, $value in $paddings {
+  .p-#{$size} {
+    padding: #{$value} !important;
+  }
+  .pt-#{$size} {
+    padding-top: #{$value} !important;
+  }
+  .pr-#{$size} {
+    padding-right: #{$value} !important;
+  }
+  .pb-#{$size} {
+    padding-bottom: #{$value} !important;
+  }
+  .pl-#{$size} {
+    padding-left: #{$value} !important;
+  }
+  .px-#{$size} {
+    padding-left: #{$value} !important;
+    padding-right: #{$value} !important;
+  }
+  .py-#{$size} {
+    padding-top: #{$value} !important;
+    padding-bottom: #{$value} !important;
+  }
+
+  .m-#{$size} {
+    margin: #{$value} !important;
+  }
+  .mt-#{$size} {
+    margin-top: #{$value} !important;
+  }
+  .mr-#{$size} {
+    margin-right: #{$value} !important;
+  }
+  .mb-#{$size} {
+    margin-bottom: #{$value} !important;
+  }
+  .ml-#{$size} {
+    margin-left: #{$value} !important;
+  }
+  .mx-#{$size} {
+    margin-left: #{$value} !important;
+    margin-right: #{$value} !important;
+  }
+  .my-#{$size} {
+    margin-top: #{$value} !important;
+    margin-bottom: #{$value} !important;
+  }
+}

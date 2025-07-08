@@ -1,0 +1,38 @@
+.ui-button {
+  color: var(--color-font-inverse);
+  border: none;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.4s;
+}
+.ui-button:hover {
+  filter: brightness(1.08);
+}
+
+.ui-button--primary {
+  background: #646cff;
+  color: var(--color-font-inverse);
+}
+
+.ui-button--default {
+  background: #e0e0e0;
+  color: #222;
+}
+
+.ui-button--subtle {
+  background: transparent;
+  color: #666;
+  box-shadow: none;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: #f5f5f5;
+    color: #444;
+  }
+}

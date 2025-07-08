@@ -1,0 +1,29 @@
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: var(--space-md);
+}
+
+.admin-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.admin-page {
+  .ui-card {
+    background: var(--color-darkground);
+    border: 1.5em solid #e5d8b0;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-glass) 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+}

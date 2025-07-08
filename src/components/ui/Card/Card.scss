@@ -1,0 +1,9 @@
+.ui-card {
+  background: var(--color-foreground-90);
+  backdrop-filter: var(--blur-lg);
+  -webkit-backdrop-filter: var(--blur-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass) 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}

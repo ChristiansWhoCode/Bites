@@ -1,0 +1,49 @@
+.header {
+  background: var(--color-foreground-80);
+  color: var(--color-font);
+  backdrop-filter: var(--blur-lg);
+  -webkit-backdrop-filter: var(--blur-lg);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), var(--shadow-glass);
+  width: calc(100% - 6em);
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 1em;
+  border-radius: 10em;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    margin-left: 2em;
+    margin-top: -2em;
+    margin-bottom: -2em;
+  }
+  &-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin-right: 2em;
+    &-item a {
+      color: var(--color-font);
+    }
+  }
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}

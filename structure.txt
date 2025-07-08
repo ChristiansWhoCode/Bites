@@ -1,0 +1,77 @@
+bites/
+├── GOAL.md
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── backend/
+│   ├── crud.py
+│   ├── database.py
+│   ├── main.py
+│   ├── models.py
+│   ├── requirements.txt
+│   ├── schemas.py
+│   └── routers/
+│       ├── blog.py
+│       ├── videos.py
+│       └── auth.py
+│   └── auth.py
+├── content/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── App.scss
+│   ├── App.tsx
+│   ├── index.scss
+│   ├── main.tsx
+│   ├── vite-env.d.ts
+│   ├── api/
+│   ├── assets/
+│   │   └── react.svg
+│   │   └── fonts/
+│   │       ├── Jersey10-Regular.ttf
+│   │       └── fonts.scss
+│   ├── components/
+│   │   ├── auth/
+│   │   │   └── GoogleLoginButton.tsx
+│   │   ├── layout/
+│   │   │   └── Header/
+│   │   │       ├── Header.tsx
+│   │   │       └── Header.scss
+│   │   └── ui/
+│   │       ├── Alert/
+│   │       │   ├── Alert.tsx
+│   │       │   └── Alert.scss
+│   │       ├── Button/
+│   │       │   ├── Button.tsx
+│   │       │   └── Button.scss
+│   │       ├── Card/
+│   │       │   ├── Card.tsx
+│   │       │   └── Card.scss
+│   │       ├── Input/
+│   │       │   ├── Input.tsx
+│   │       │   └── Input.scss
+│   │       ├── Modal/
+│   │       │   ├── Modal.tsx
+│   │       │   └── Modal.scss
+│   │       └── Spinner/
+│   │           ├── Spinner.tsx
+│   │           └── Spinner.scss
+│   └── pages/
+│       ├── BlogPage.tsx
+│       ├── ContactPage.tsx
+│       ├── HomePage.tsx
+│       ├── PostPage.tsx
+│       ├── SupportPage.tsx
+│       ├── VideosPage.tsx
+│       └── admin/
+│           ├── AdminPage.tsx
+│           ├── AdminPage.scss
+│           ├── ConnectYouTube.tsx
+│           └── AddBlogPage.tsx
+│   └── styles/
+│       └── utilities.scss
