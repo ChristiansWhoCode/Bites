@@ -1,7 +1,7 @@
 import "./Button.scss";
 import { type ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "default" | "subtle";
+type ButtonVariant = "primary" | "default" | "subtle" | "admin";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

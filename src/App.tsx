@@ -5,11 +5,13 @@ import AppRouter from "./router";
 
 function App() {
   return (
-    <AppRouter>
-      <div className="header-container">
-        <Header />
-      </div>
-    </AppRouter>
+    <div className="main">
+      <AppRouter>
+        <div className="header-container">
+          <Header />
+        </div>
+      </AppRouter>
+    </div>
   );
 }
 

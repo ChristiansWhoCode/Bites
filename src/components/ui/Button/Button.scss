@@ -25,6 +25,13 @@
   color: #222;
 }
 
+.ui-button--admin {
+  background: transparent;
+  color: var(--color-font-admin);
+  border-bottom: var(--color-font-admin);
+  font-size: 1.3em;
+}
+
 .ui-button--subtle {
   background: transparent;
   color: #666;

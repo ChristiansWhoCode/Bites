@@ -35,7 +35,7 @@ const ConnectYouTube: React.FC = () => {
   };
 
   return (
-    <Button variant="default" onClick={connectYouTube}>
+    <Button variant="admin" onClick={connectYouTube}>
       <Play size={24} className="mb-xs pixelated" />
       <span className="mt-xs">Connect YouTube Channel</span>
     </Button>

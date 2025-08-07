@@ -1,24 +1,30 @@
 .header {
-  background: var(--color-foreground-80);
+  background: var(--color-foreground-50);
   color: var(--color-font);
   backdrop-filter: var(--blur-lg);
   -webkit-backdrop-filter: var(--blur-lg);
   padding: 1.5rem 2rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), var(--shadow-glass);
-  width: calc(100% - 6em);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5),
+    inset -1px -1px 4px rgba(155, 155, 155, 0.4),
+    inset -4px -4px 13px rgba(255, 255, 255, 0.8);
+  width: 100%;
   display: flex;
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
-  margin: 2em 1em;
+  margin: 2em 0em;
+  border: 2px solid var(--color-foreground);
   border-radius: 10em;
+
+  &-background {
+    background: var(--color-foreground-50);
+  }
 
   &-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
   }
 
   &-logo {
