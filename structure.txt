@@ -1,77 +1,108 @@
-bites/
-├── GOAL.md
-├── README.md
+# Project Structure: Bites
+
+Root Directory:
+├── docker-compose.yml
+├── Dockerfile
 ├── eslint.config.js
+├── GOAL.md
 ├── index.html
 ├── package.json
+├── README.md
+├── structure.txt  # (this file)
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 ├── vite.config.ts
+├── auth-service/
+│   ├── Dockerfile
+│   ├── google_oauth.py
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── whitelist.py
 ├── backend/
+│   ├── auth.py
 │   ├── crud.py
 │   ├── database.py
+│   ├── Dockerfile
 │   ├── main.py
 │   ├── models.py
 │   ├── requirements.txt
 │   ├── schemas.py
+│   ├── middleware/
+│   │   ├── auth middleware.py
+│   │   └── auth.py
 │   └── routers/
+│       ├── auth.py
 │       ├── blog.py
 │       ├── videos.py
-│       └── auth.py
-│   └── auth.py
+│       └── youtube.py
 ├── content/
 ├── public/
+│   ├── Brian-Confused.png
+│   ├── Brian-Neutral.png
+│   ├── Brian-Sad.png
+│   ├── Brian-Talking.png
+│   ├── bsb_logo.png
 │   └── vite.svg
 ├── src/
 │   ├── App.scss
 │   ├── App.tsx
 │   ├── index.scss
 │   ├── main.tsx
+│   ├── router.tsx
 │   ├── vite-env.d.ts
 │   ├── api/
 │   ├── assets/
-│   │   └── react.svg
+│   │   ├── react.svg
 │   │   └── fonts/
-│   │       ├── Jersey10-Regular.ttf
-│   │       └── fonts.scss
+│   │       ├── fonts.scss
+│   │       └── Jersey10-Regular.ttf
 │   ├── components/
 │   │   ├── auth/
-│   │   │   └── GoogleLoginButton.tsx
+│   │   │   ├── GoogleLoginButton.scss
+│   │   │   ├── GoogleLoginButton.tsx
+│   │   │   └── ProtectedRoute.tsx
 │   │   ├── layout/
 │   │   │   └── Header/
-│   │   │       ├── Header.tsx
-│   │   │       └── Header.scss
+│   │   │       ├── Header.scss
+│   │   │       └── Header.tsx
 │   │   └── ui/
 │   │       ├── Alert/
-│   │       │   ├── Alert.tsx
-│   │       │   └── Alert.scss
+│   │       │   ├── Alert.scss
+│   │       │   └── Alert.tsx
 │   │       ├── Button/
-│   │       │   ├── Button.tsx
-│   │       │   └── Button.scss
+│   │       │   ├── Button.scss
+│   │       │   └── Button.tsx
 │   │       ├── Card/
-│   │       │   ├── Card.tsx
-│   │       │   └── Card.scss
+│   │       │   ├── Card.scss
+│   │       │   └── Card.tsx
+│   │       ├── ContactForm/
+│   │       │   ├── ContactForm.scss
+│   │       │   └── ContactForm.tsx
 │   │       ├── Input/
-│   │       │   ├── Input.tsx
-│   │       │   └── Input.scss
+│   │       │   ├── Input.scss
+│   │       │   └── Input.tsx
 │   │       ├── Modal/
-│   │       │   ├── Modal.tsx
-│   │       │   └── Modal.scss
+│   │       │   ├── Modal.scss
+│   │       │   └── Modal.tsx
 │   │       └── Spinner/
-│   │           ├── Spinner.tsx
-│   │           └── Spinner.scss
-│   └── pages/
-│       ├── BlogPage.tsx
-│       ├── ContactPage.tsx
-│       ├── HomePage.tsx
-│       ├── PostPage.tsx
-│       ├── SupportPage.tsx
-│       ├── VideosPage.tsx
-│       └── admin/
-│           ├── AdminPage.tsx
-│           ├── AdminPage.scss
-│           ├── ConnectYouTube.tsx
-│           └── AddBlogPage.tsx
+│   │           ├── Spinner.scss
+│   │           └── Spinner.tsx
+│   ├── contexts/
+│   │   └── AuthContext.tsx
+│   ├── pages/
+│   │   ├── AboutPage.tsx
+│   │   ├── AdminPage.tsx
+│   │   ├── BlogPage.tsx
+│   │   ├── ContactPage.tsx
+│   │   ├── HomePage.tsx
+│   │   ├── PostPage.tsx
+│   │   ├── SupportPage.tsx
+│   │   ├── VideosPage.tsx
+│   │   └── admin/
+│   │       ├── AddBlogPage.tsx
+│   │       ├── AdminPage.scss
+│   │       ├── AdminPage.tsx
+│   │       └── ConnectYouTube.tsx
 │   └── styles/
 │       └── utilities.scss
