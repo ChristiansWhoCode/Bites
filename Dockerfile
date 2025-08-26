@@ -5,5 +5,10 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+RUN npm run build
+
+# Install a static server
+RUN npm install -g serve
+
 EXPOSE 3000
-CMD ["npm", "run", "dev", "--", "--host", "--port", "3000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
