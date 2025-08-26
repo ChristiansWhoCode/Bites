@@ -186,7 +186,8 @@ ul {
   flex-wrap: wrap;
   gap: var(--space-lg);
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 5em auto;
+  padding-bottom: 5em;
   align-items: flex-start;
 
   > * {
@@ -209,5 +210,13 @@ ul {
   max-width: 200px;
   width: 100%;
   height: auto;
-  margin-bottom: -2.4rem;
+  margin-bottom: -2rem;
+}
+
+.horizontal {
+  display: flex;
+}
+
+.about-text {
+  padding: 2em;
 }

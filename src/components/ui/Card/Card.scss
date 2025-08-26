@@ -24,4 +24,8 @@
     backdrop-filter: var(--blur-lg, blur(16px));
     -webkit-backdrop-filter: var(--blur-lg, blur(16px));
   }
+  &__lifted {
+    margin-top: -10rem;
+    z-index: 10;
+  }
 }

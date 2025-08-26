@@ -1,0 +1,45 @@
+.episode-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  margin-bottom: var(--space-md);
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  &__thumbnail {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+    background: #f2f2f2;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: var(--space-sm) var(--space-md) 0 var(--space-md);
+    flex: 1;
+  }
+
+  &__watch {
+    font-size: 0.95rem;
+    color: #4f8cff;
+    margin: var(--space-sm) var(--space-md) var(--space-md) var(--space-md);
+    font-weight: 500;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    .episode-card__watch {
+      text-decoration: underline;
+    }
+  }
+}
