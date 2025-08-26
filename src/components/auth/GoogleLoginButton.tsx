@@ -114,7 +114,6 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
 
   return (
     <>
-      {/* This is the div where Google will render its button */}
       <div
         id="google-signin-button"
         ref={googleButtonRef}

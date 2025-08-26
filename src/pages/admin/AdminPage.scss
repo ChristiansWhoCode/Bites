@@ -17,7 +17,12 @@
   }
 }
 
-.admin-page {
+.admin {
+  button,
+  span,
+  .admin-heading {
+    font-family: "Jersey 10", sans-serif;
+  }
   .ui-card {
     background: var(--color-darkground);
     border: 1.5em solid #e5d8b0;
@@ -25,5 +30,10 @@
     box-shadow: var(--shadow-glass) 0 2px 8px rgba(0, 0, 0, 0.06);
     padding: 1.5rem;
     margin: 1rem 0;
+  }
+  .admin-heading {
+    color: rgb(26, 168, 61);
+    font-size: 2em;
+    margin-top: 0;
   }
 }
