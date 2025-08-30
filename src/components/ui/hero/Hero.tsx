@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import "./Hero.scss";
 
-const backgrounds = [{ label: "Day-6", src: "/backgrounds/day-6.png" }];
+const backgrounds = [
+  { label: "Day-1", src: "/backgrounds/day-1.png" },
+  { label: "City", src: "/backgrounds/city.png" },
+  { label: "Day-6", src: "/backgrounds/day-6.png" },
+];
 
 export default function Hero() {
   const [bgIndex, setBgIndex] = useState(0);
@@ -9,24 +13,26 @@ export default function Hero() {
   const currentBg = backgrounds[bgIndex];
 
   // Automatically rotate backgrounds every 5 seconds with fade effect
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       setIsFading(true);
-  //       setTimeout(() => {
-  //         setBgIndex((prev) => (prev + 1) % backgrounds.length);
-  //         setIsFading(false);
-  //       }, 800); // match transition duration in SCSS
-  //     }, 10000);
-  //     return () => clearInterval(interval);
-  //   }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setBgIndex((prev) => (prev + 1) % backgrounds.length);
+        setIsFading(false);
+      }, 800); // match transition duration in SCSS
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
       className={`hero${isFading ? " is-fading" : ""}`}
-      style={{
-        backgroundColor: "var(--color-foreground)",
-        ["--hero-bg-image"]: `url(${currentBg.src})`,
-      }}
+      style={
+        {
+          backgroundColor: "var(--color-foreground)",
+          "--hero-bg-image": `url(${currentBg.src})`,
+        } as React.CSSProperties
+      }
     >
       <div className="hero__desk" />
       <img src="/backgrounds/bible.png" alt="Bible" className="hero__bible" />
