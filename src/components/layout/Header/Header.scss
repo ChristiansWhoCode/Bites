@@ -29,11 +29,16 @@
 
   &-logo {
     display: flex;
+    flex-direction: row;
+    gap: 2rem;
     align-items: center;
-    width: 150px;
-    margin-left: 2em;
-    margin-top: -2em;
-    margin-bottom: -2em;
+    &-image {
+      align-items: center;
+      width: 150px;
+      margin-left: 2em;
+      margin-top: -2em;
+      margin-bottom: -2em;
+    }
   }
   &-nav {
     display: flex;

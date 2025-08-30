@@ -20,10 +20,20 @@ export default function HomePage() {
               allowFullScreen
             ></iframe>
             <div className="hero__cta-buttons">
-              <a href="/watch" className="btn btn-secondary">
+              <a
+                className="btn btn-secondary"
+                href="https://www.youtube.com/@BrianNelson-BSB"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 📖 Start Here
               </a>
-              <a href="/giving" className="btn btn-tertiary">
+              <a
+                className="btn btn-tertiary"
+                href="https://giving.myamplify.io/App/Form/c06cb37f-73d3-4f90-8c4d-22b762d3cfe9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Partner With Us
               </a>
             </div>
@@ -50,7 +60,7 @@ export default function HomePage() {
             </p>
           </div>
         </Card>
-        <Card className="ui-card--tv">
+        {/* <Card className="ui-card--tv">
           <iframe
             src="https://www.youtube.com/watch?v=_Rid5Cc9TEU&feature=youtu.be"
             title="YouTube video player"
@@ -58,8 +68,8 @@ export default function HomePage() {
             allowFullScreen
             style={{ width: "100%", height: "100%" }}
           ></iframe>
-        </Card>
-        <Card title="Featured Episodes" className="featured-episodes-card">
+        </Card> */}
+        {/* <Card title="Featured Episodes" className="featured-episodes-card" >
           <div className="episodes-list">
             <EpisodeCard
               title="When God Speaks, Life Begins"
@@ -77,33 +87,33 @@ export default function HomePage() {
               link="/watch/episode3"
             />
           </div>
-        </Card>
+        </Card> */}
         <Card title="Connect & Follow" className="connect-card">
           <ContactForm />
           <div className="social-links">
             <a
-              href="https://youtube.com/@bitesizedbible"
+              href="https://www.youtube.com/@BrianNelson-BSB"
               target="_blank"
               rel="noopener"
             >
               YouTube
             </a>
-            <a
+            {/* <a
               href="https://facebook.com/bitesizedbible"
               target="_blank"
               rel="noopener"
             >
               Facebook
-            </a>
+            </a> */}
             <a
-              href="https://instagram.com/bitesizedbible"
+              href="https://www.instagram.com/bdnelson63/"
               target="_blank"
               rel="noopener"
             >
               Instagram
             </a>
             <a
-              href="https://tiktok.com/@bitesizedbible"
+              href="https://www.tiktok.com/@bite_size_bible"
               target="_blank"
               rel="noopener"
             >
@@ -117,7 +127,12 @@ export default function HomePage() {
             you. Your support helps create free, high-quality Bible teaching for
             people everywhere.
           </p>
-          <a href="/giving" className="btn btn-primary">
+          <a
+            className="btn btn-primary"
+            href="https://giving.myamplify.io/App/Form/c06cb37f-73d3-4f90-8c4d-22b762d3cfe9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Partner With Us
           </a>
         </Card>

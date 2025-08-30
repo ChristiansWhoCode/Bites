@@ -205,6 +205,18 @@ ul {
     flex: 1 1 33.333%;
     max-width: 100%;
   }
+  .half {
+    flex: 1 1 50%;
+    max-width: 100%;
+  }
+  .three-quarters {
+    flex: 3 1 75%;
+    max-width: 100%;
+  }
+  .quarter {
+    flex: 1 1 25%;
+    max-width: 100%;
+  }
 }
 .cartoon {
   max-width: 200px;
