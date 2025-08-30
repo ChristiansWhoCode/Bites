@@ -38,12 +38,23 @@ Root Directory:
 │       └── youtube.py
 ├── content/
 ├── public/
+│   ├── bible.png
+│   ├── bsb_logo.png
 │   ├── Brian-Confused.png
 │   ├── Brian-Neutral.png
 │   ├── Brian-Sad.png
 │   ├── Brian-Talking.png
-│   ├── bsb_logo.png
-│   └── vite.svg
+│   ├── vite.svg
+│   ├── backgrounds/
+│   │   ├── bible.png
+│   │   ├── city.png
+│   │   ├── forest.png
+│   │   ├── day-6.png
+│   │   ├── Bite_Sized_Bible.png
+│   │   ├── Real_Brian_01.png
+│   │   ├── Real_Brian_Speaking.png
+│   │   ├── Real_Brian_Talking to camera.jpeg
+│   │   └── young_humans_01.png
 ├── src/
 │   ├── App.scss
 │   ├── App.tsx
@@ -63,6 +74,9 @@ Root Directory:
 │   │   │   ├── GoogleLoginButton.tsx
 │   │   │   └── ProtectedRoute.tsx
 │   │   ├── layout/
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.scss
+│   │   │   │   └── Footer.tsx
 │   │   │   └── Header/
 │   │   │       ├── Header.scss
 │   │   │       └── Header.tsx
@@ -79,6 +93,12 @@ Root Directory:
 │   │       ├── ContactForm/
 │   │       │   ├── ContactForm.scss
 │   │       │   └── ContactForm.tsx
+│   │       ├── EpisodeCard/
+│   │       │   ├── EpisodeCard.scss
+│   │       │   └── EpisodeCard.tsx
+│   │       ├── hero/
+│   │       │   ├── hero.scss
+│   │       │   └── hero.tsx
 │   │       ├── Input/
 │   │       │   ├── Input.scss
 │   │       │   └── Input.tsx

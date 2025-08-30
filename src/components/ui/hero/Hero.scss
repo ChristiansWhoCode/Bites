@@ -30,6 +30,16 @@
     z-index: 1;
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-font-inverse);
+    align-items: center;
+    height: 20em;
+    text-shadow: 2px 2px 8px var(--color-font);
+  }
+
   &__controls {
     position: absolute;
     top: 1rem;

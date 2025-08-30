@@ -1,6 +1,6 @@
 import Card from "../components/ui/Card/Card";
 import ContactForm from "../components/ui/ContactForm/ContactForm";
-import EpisodeCard from "../components/ui/EpisodeCard/EpisodeCard";
+// import EpisodeCard from "../components/ui/EpisodeCard/EpisodeCard";
 import Hero from "../components/ui/hero/Hero";
 
 export default function HomePage() {

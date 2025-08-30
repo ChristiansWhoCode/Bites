@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import "./Hero.scss";
 
 const backgrounds = [
-  { label: "Day-1", src: "/backgrounds/day-1.png" },
   { label: "City", src: "/backgrounds/city.png" },
+  { label: "Forest", src: "/backgrounds/forest.png" },
   { label: "Day-6", src: "/backgrounds/day-6.png" },
+  { label: "Bite Sized Bible", src: "/backgrounds/Bite_Sized_Bible.png" },
+  { label: "Real Brian 01", src: "/backgrounds/Real_Brian_01.png" },
+  { label: "Real Brian Speaking", src: "/backgrounds/Real_Brian_Speaking.png" },
+  { label: "Real Brian Talking", src: "/backgrounds/Real_Brian_Talking.jpeg" },
+  { label: "Young Humans 01", src: "/backgrounds/young_humans_01.png" },
 ];
 
 export default function Hero() {
@@ -42,9 +47,8 @@ export default function Hero() {
         className="hero__bible-mirror hero__bible--mirror"
       />
       <div className="hero__content">
-        <h1 className="hero__headline">
-          Making the Bible Come Alive — One Bite-Sized Video at a Time
-        </h1>
+        <h1 className="hero__headline">Making the Bible Come Alive</h1>
+        <h2>One Bite-Sized Video at a Time</h2>
       </div>
     </div>
   );
