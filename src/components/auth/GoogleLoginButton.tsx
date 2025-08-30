@@ -124,7 +124,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
         <Button
           variant="default"
           className={`${isLoading ? "loading" : ""}`}
-          disabled={true}
+          disabled={disabled}
         >
           <div className="google-login-content">
             {isLoading ? (
