@@ -17,15 +17,20 @@
       border-radius: var(--radius-md);
     }
   }
+  &__video {
+    display: flex;
+    align-items: center;
+    padding: 0em;
+    overflow: hidden;
+    iframe {
+      border-radius: var(--radius-md);
+    }
+  }
 
   &--glass {
     background: var(--color-glass-bg, rgba(255, 255, 255, 0.2));
     box-shadow: var(--shadow-glass, 0 4px 16px rgba(0, 0, 0, 0.1));
     backdrop-filter: var(--blur-lg, blur(16px));
     -webkit-backdrop-filter: var(--blur-lg, blur(16px));
-  }
-  &__lifted {
-    margin-top: -10rem;
-    z-index: 10;
   }
 }

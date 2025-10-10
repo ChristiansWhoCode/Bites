@@ -1,14 +1,17 @@
 import Card from "../components/ui/Card/Card";
 import ContactForm from "../components/ui/ContactForm/ContactForm";
 // import EpisodeCard from "../components/ui/EpisodeCard/EpisodeCard";
-import Hero from "../components/ui/hero/Hero";
 
 export default function HomePage() {
   return (
     <div>
-      <Hero />
       <div className="page">
-        <Card className="hero-card ui-card__lifted">
+        <div className="hero">
+          <h1>Making the Bible Come Alive.</h1>
+          <h3>One short, simple video at a time.</h3>
+        </div>
+
+        <Card className="ui-card ui-card__video w-full">
           <div className="hero__video">
             <iframe
               width="560"
@@ -39,15 +42,21 @@ export default function HomePage() {
             </div>
           </div>
         </Card>
-        <Card title="Wait, what did I just read?" className="ui-card--solid">
+        <Card
+          title="The Bible Doesn't Have to Feel Overwhelming."
+          className="ui-card--solid"
+        >
           Whether you&apos;ve never cracked open a Bible or get lost five verses
           in, we&apos;ve got you. Short, simple chunks you&apos;ll actually
           get—and maybe even enjoy. No guilt. No thee&apos;s or thou&apos;s.
-          Just one bite at a time.
+          Just one bite at a time. Whether you&aposve never openei a Bible or
+          you get stuck five verses in-we&aposve got you. Bite-Sized Bible gives
+          you short, story-driven videos that actually connect. No confusion. No
+          guilt.
         </Card>
         <Card
           backgroundColor="#F2D7B5"
-          className="ui-card--solid two-thirds horizontal"
+          className="ui-card--solid two-thirds horizontal stack-on-mobile about-card"
         >
           <img src="./Brian-Neutral.png" className="cartoon" />
           <div className="about-text">

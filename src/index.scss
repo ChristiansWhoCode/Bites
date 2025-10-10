@@ -81,6 +81,9 @@
   --shadow-glass: 0 4px 32px 0 rgba(31, 38, 135, 0.15),
     0 1.5px 4px 0 rgba(0, 0, 0, 0.08);
   --shadow-pebble: inset -1px -4px 4px rgba(0, 0, 0, 1);
+  --shadow-pebble-big: 0 2px 8px rgba(0, 0, 0, 0.5),
+    inset -1px -1px 4px rgba(155, 155, 155, 0.4),
+    inset -4px -4px 13px rgba(255, 255, 255, 0.8);
 
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -195,6 +198,11 @@ ul {
     max-width: 100%;
     min-width: 250px;
     box-sizing: border-box;
+  }
+
+  .w-full {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .two-thirds {
