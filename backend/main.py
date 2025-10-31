@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import auth, blog, youtube
+from routers import contact
 
 app = FastAPI()
 
@@ -18,6 +19,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api")
 app.include_router(blog.router, prefix="/api")
 app.include_router(youtube.router, prefix="/api")
+app.include_router(contact.router)
 
 @app.get("/")
 async def root():
