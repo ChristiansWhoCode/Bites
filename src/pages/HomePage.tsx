@@ -1,6 +1,6 @@
 import Card from "../components/ui/Card/Card";
 import ContactForm from "../components/ui/ContactForm/ContactForm";
-// import EpisodeCard from "../components/ui/EpisodeCard/EpisodeCard";
+import YouTubePlaylists from "../components/layout/YouTubePlaylist/YouTubePlaylist";
 
 export default function HomePage() {
   return (
@@ -22,17 +22,17 @@ export default function HomePage() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-            <div className="hero__cta-buttons">
+            <div className="cta-buttons">
               <a
-                className="btn btn-secondary"
+                className="btn btn__primary btn__left"
                 href="https://www.youtube.com/@BrianNelson-BSB"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                📖 Start Here
+                Start Here
               </a>
               <a
-                className="btn btn-tertiary"
+                className="btn btn__right"
                 href="https://giving.myamplify.io/App/Form/c06cb37f-73d3-4f90-8c4d-22b762d3cfe9"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -69,36 +69,19 @@ export default function HomePage() {
             </p>
           </div>
         </Card>
-        {/* <Card className="ui-card--tv">
-          <iframe
-            src="https://www.youtube.com/watch?v=_Rid5Cc9TEU&feature=youtu.be"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ width: "100%", height: "100%" }}
-          ></iframe>
-        </Card> */}
-        {/* <Card title="Featured Episodes" className="featured-episodes-card" >
-          <div className="episodes-list">
-            <EpisodeCard
-              title="When God Speaks, Life Begins"
-              thumbnail="/thumbnails/episode1.jpg"
-              link="/watch/episode1"
-            />
-            <EpisodeCard
-              title="You Were Made for More"
-              thumbnail="/thumbnails/episode2.jpg"
-              link="/watch/episode2"
-            />
-            <EpisodeCard
-              title="The Rest We Were Made For"
-              thumbnail="/thumbnails/episode3.jpg"
-              link="/watch/episode3"
-            />
-          </div>
-        </Card> */}
-        <Card title="Connect & Follow" className="connect-card">
+
+        {/*! add a component for a single playlist here  */}
+
+        <Card
+          title="Featured Series"
+          description="Dive deeper into key themes through short, story-driven series that trace the Bible's big story."
+          className="one-third"
+        >
+          <YouTubePlaylists />
+        </Card>
+        <Card className="connect-card half">
           <ContactForm />
+          <h2 className="mt-md">Connect & Follow</h2>
           <div className="social-links">
             <a
               href="https://www.youtube.com/@BrianNelson-BSB"
@@ -130,7 +113,7 @@ export default function HomePage() {
             </a>
           </div>
         </Card>
-        <Card title="Support the Mission" className="support-card">
+        <Card title="Support the Mission" className="support-card full-width">
           <p>
             Bite-Sized Bible is possible thanks to the generosity of people like
             you. Your support helps create free, high-quality Bible teaching for

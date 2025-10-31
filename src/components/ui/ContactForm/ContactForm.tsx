@@ -6,6 +6,7 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -13,7 +14,7 @@ export default function ContactForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
 
@@ -22,8 +23,29 @@ export default function ContactForm() {
       return;
     }
 
-    // TODO: Send form data to backend API
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.message || "Failed to send message.");
+      }
+      setSubmitted(true);
+    } catch (err: unknown) {
+      let message = "Failed to send message.";
+      if (err instanceof Error) {
+        message = err.message;
+      } else if (typeof err === "string") {
+        message = err;
+      }
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -63,8 +85,8 @@ export default function ContactForm() {
           required
         />
       </label>
-      <Button type="submit" variant="primary">
-        Send
+      <Button type="submit" variant="primary" disabled={loading}>
+        {loading ? "Sending..." : "Send"}
       </Button>
     </form>
   );

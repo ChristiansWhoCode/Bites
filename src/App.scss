@@ -42,15 +42,16 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0em;
+  gap: 1em;
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
   @media screen and (max-width: 768px) {
     margin-top: 3em;
     margin-bottom: 0;
     align-items: start;
-    h1,
-    h2 {
-      margin: 0;
-    }
   }
 
   &__video {
@@ -71,5 +72,15 @@ html {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+  a {
+    padding: var(--space-md);
+    box-shadow: var(--shadow-pebble-big);
   }
 }
