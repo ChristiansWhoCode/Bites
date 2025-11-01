@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import "./YouTubePlaylist.scss";
 
-console.log("All Vite env vars:", import.meta.env);
-console.log("API Key exists?", !!import.meta.env.VITE_YOUTUBE_API_KEY);
-console.log("API Key value:", import.meta.env.VITE_YOUTUBE_API_KEY);
-
 interface Playlist {
   id: string;
   title: string;
@@ -29,12 +25,11 @@ interface YouTubePlaylistsResponse {
 }
 
 interface Props {
-  channelId?: string; // optional prop, fallback to hardcoded
+  channelId?: string;
   maxResults?: number;
 }
 
-// Example hardcoded channel id (replace with the channel you want)
-const DEFAULT_CHANNEL_ID = "UCBM_eR5dTQREkbx1ya8s2Ag"; // Bite-Sized Bible channel
+const DEFAULT_CHANNEL_ID = "UCBM_eR5dTQREkbx1ya8s2Ag";
 
 export default function YouTubePlaylists({
   channelId = DEFAULT_CHANNEL_ID,
@@ -44,8 +39,30 @@ export default function YouTubePlaylists({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // read API key from Vite env (prefix VITE_)
-  const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY as string | "";
+  // Get API key with fallback logic
+  const getApiKey = (): string | "" => {
+    console.log("All Vite env vars:", import.meta.env);
+
+    let key = import.meta.env.VITE_YOUTUBE_API_KEY as string | "";
+
+    if (key) {
+      console.log("✓ Found VITE_YOUTUBE_API_KEY");
+      return key;
+    }
+
+    console.log("✗ VITE_YOUTUBE_API_KEY not found, trying YOUTUBE_API_KEY...");
+    key = import.meta.env.YOUTUBE_API_KEY as string | "";
+
+    if (key) {
+      console.log("✓ Found YOUTUBE_API_KEY");
+    } else {
+      console.log("✗ YOUTUBE_API_KEY not found either");
+    }
+
+    return key;
+  };
+
+  const apiKey = getApiKey();
 
   useEffect(() => {
     if (!apiKey) {
@@ -54,10 +71,17 @@ export default function YouTubePlaylists({
     }
 
     let cancelled = false;
+
     async function load() {
       setLoading(true);
       setError(null);
+
       try {
+        console.log(
+          "Fetching playlists with API key:",
+          apiKey?.substring(0, 10) + "..."
+        );
+
         const url = new URL("https://www.googleapis.com/youtube/v3/playlists");
         url.searchParams.set("part", "snippet");
         url.searchParams.set("channelId", channelId);
@@ -65,10 +89,12 @@ export default function YouTubePlaylists({
         url.searchParams.set("key", apiKey);
 
         const res = await fetch(url.toString());
+
         if (!res.ok) {
           const d = await res.json().catch(() => ({}));
           throw new Error(d.error?.message || `HTTP ${res.status}`);
         }
+
         const data = (await res.json()) as YouTubePlaylistsResponse;
         const items = (data.items || []).map((it: YouTubePlaylistItem) => ({
           id: it.id,
@@ -77,18 +103,26 @@ export default function YouTubePlaylists({
           thumbnails: it.snippet?.thumbnails,
         }));
 
-        // Only keep the requested number of most-recent playlists
         const limited = items.slice(0, Math.max(0, Number(maxResults || 4)));
-        if (!cancelled) setPlaylists(limited);
+
+        if (!cancelled) {
+          console.log("Successfully loaded", limited.length, "playlists");
+          setPlaylists(limited);
+        }
       } catch (e: unknown) {
-        if (!cancelled)
+        console.error("Failed to load playlists:", e);
+        if (!cancelled) {
           setError((e as Error)?.message || "Failed to load playlists");
+        }
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     }
 
     load();
+
     return () => {
       cancelled = true;
     };
@@ -116,7 +150,7 @@ export default function YouTubePlaylists({
                 >
                   <img
                     className="yt-playlists__thumb"
-                    src={p.thumbnails.default.url}
+                    src={p?.thumbnails?.default.url}
                     alt={
                       p.title
                         ? `${p.title} playlist thumbnail`
