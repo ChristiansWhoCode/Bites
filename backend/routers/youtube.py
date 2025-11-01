@@ -4,6 +4,8 @@ from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import Flow
 from middleware.auth import require_auth
 import os
+from typing import Optional
+import httpx
 
 router = APIRouter(prefix="/youtube", tags=["youtube"])
 
@@ -44,3 +46,32 @@ async def youtube_callback(code: str, user = Depends(require_auth)):
     # Exchange code for tokens and save to user
     print(f"YouTube callback for user: {user['email']}")
     return {"message": "YouTube connected successfully"}
+
+
+@router.get("/playlists")
+async def get_playlists(channelId: Optional[str] = None, maxResults: int = 4):
+    """Proxy endpoint to fetch playlists from the YouTube Data API using a
+    server-side API key. Returns the raw JSON from Google.
+    Set the runtime env var `YOUTUBE_API_KEY` (or `VITE_YOUTUBE_API_KEY`) on the server.
+    """
+    api_key = os.getenv("YOUTUBE_API_KEY") or os.getenv("VITE_YOUTUBE_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=503, detail="YouTube API key not configured on server")
+
+    if not channelId:
+        raise HTTPException(status_code=400, detail="channelId is required")
+
+    url = "https://www.googleapis.com/youtube/v3/playlists"
+    params = {
+        "part": "snippet",
+        "channelId": channelId,
+        "maxResults": str(maxResults),
+        "key": api_key,
+    }
+
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(url, params=params, timeout=10.0)
+        if resp.status_code != 200:
+            # Forward errors from Google where possible
+            raise HTTPException(status_code=resp.status_code, detail=resp.text)
+        return resp.json()

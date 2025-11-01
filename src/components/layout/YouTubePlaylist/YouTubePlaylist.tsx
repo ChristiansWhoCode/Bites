@@ -44,40 +44,60 @@ export default function YouTubePlaylists({
   const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY as string | "";
 
   useEffect(() => {
-    // If there's no API key at build-time, don't attempt the client-side fetch.
-    // We intentionally do not set an error here so the UI can render a graceful
-    // fallback (link to the channel playlists) instead of an explicit error box.
-    if (!apiKey) {
-      return;
-    }
-
     let cancelled = false;
+
     async function load() {
       setLoading(true);
       setError(null);
+
       try {
-        const url = new URL("https://www.googleapis.com/youtube/v3/playlists");
-        url.searchParams.set("part", "snippet");
-        url.searchParams.set("channelId", channelId);
-        url.searchParams.set("maxResults", String(maxResults));
-        url.searchParams.set("key", apiKey);
-
-        const res = await fetch(url.toString());
-        if (!res.ok) {
-          const d = await res.json().catch(() => ({}));
-          throw new Error(d.error?.message || `HTTP ${res.status}`);
+        // 1) Try the server-side proxy first (runtime env key on backend)
+        const proxyUrl = `/api/youtube/playlists?channelId=${encodeURIComponent(
+          channelId
+        )}&maxResults=${encodeURIComponent(String(maxResults))}`;
+        const proxyResp = await fetch(proxyUrl);
+        if (proxyResp.ok) {
+          const data = (await proxyResp.json()) as YouTubePlaylistsResponse;
+          const items = (data.items || []).map((it: YouTubePlaylistItem) => ({
+            id: it.id,
+            title: it.snippet?.title ?? "",
+            description: it.snippet?.description,
+            thumbnails: it.snippet?.thumbnails,
+          }));
+          const limited = items.slice(0, Math.max(0, Number(maxResults || 4)));
+          if (!cancelled) setPlaylists(limited);
+          return;
         }
-        const data = (await res.json()) as YouTubePlaylistsResponse;
-        const items = (data.items || []).map((it: YouTubePlaylistItem) => ({
-          id: it.id,
-          title: it.snippet?.title ?? "",
-          description: it.snippet?.description,
-          thumbnails: it.snippet?.thumbnails,
-        }));
 
-        // Only keep the requested number of most-recent playlists
-        const limited = items.slice(0, Math.max(0, Number(maxResults || 4)));
-        if (!cancelled) setPlaylists(limited);
+        // 2) Fall back to client-side fetch using VITE_YOUTUBE_API_KEY (if present)
+        if (apiKey) {
+          const url = new URL(
+            "https://www.googleapis.com/youtube/v3/playlists"
+          );
+          url.searchParams.set("part", "snippet");
+          url.searchParams.set("channelId", channelId);
+          url.searchParams.set("maxResults", String(maxResults));
+          url.searchParams.set("key", apiKey);
+
+          const res = await fetch(url.toString());
+          if (!res.ok) {
+            const d = await res.json().catch(() => ({}));
+            throw new Error(d.error?.message || `HTTP ${res.status}`);
+          }
+          const data = (await res.json()) as YouTubePlaylistsResponse;
+          const items = (data.items || []).map((it: YouTubePlaylistItem) => ({
+            id: it.id,
+            title: it.snippet?.title ?? "",
+            description: it.snippet?.description,
+            thumbnails: it.snippet?.thumbnails,
+          }));
+          const limited = items.slice(0, Math.max(0, Number(maxResults || 4)));
+          if (!cancelled) setPlaylists(limited);
+          return;
+        }
+
+        // 3) Neither proxy nor client key available — leave playlists empty
+        if (!cancelled) setPlaylists([]);
       } catch (e: unknown) {
         if (!cancelled)
           setError((e as Error)?.message || "Failed to load playlists");
