@@ -109,6 +109,17 @@ export default function YouTubePlaylists({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={p.title || `YouTube playlist`}
+                  onClick={(e) => {
+                    // Open via window.open with noopener/noreferrer to avoid giving the new tab a reference
+                    // and to reduce any prefetch/embedding side-effects from some browsers/extensions.
+                    e.preventDefault();
+                    try {
+                      window.open(`https://www.youtube.com/playlist?list=${p.id}`, "_blank", "noopener,noreferrer");
+                    } catch {
+                      // fallback to normal navigation if window.open is blocked
+                      window.location.href = `https://www.youtube.com/playlist?list=${p.id}`;
+                    }
+                  }}
                 >
                   <img
                     className="yt-playlists__thumb"
