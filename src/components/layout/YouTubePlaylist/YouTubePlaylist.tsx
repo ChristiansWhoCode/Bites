@@ -99,7 +99,7 @@ export default function YouTubePlaylists({
       {playlists.length === 0 ? (
         <div>No playlists found.</div>
       ) : (
-  <ul className="yt-playlists__list">
+        <ul className="yt-playlists__list">
           {playlists.map((p) => (
             <li key={p.id} className="yt-playlists__item">
               {p.thumbnails?.default?.url && (
@@ -125,6 +125,14 @@ export default function YouTubePlaylists({
           ))}
         </ul>
       )}
+      <a
+        className="yt-playlists__see-all"
+        href={`https://www.youtube.com/channel/${channelId}/playlists`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        See All Series
+      </a>
     </div>
   );
 }

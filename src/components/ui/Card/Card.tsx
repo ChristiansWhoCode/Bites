@@ -7,6 +7,7 @@ interface CardProps {
   title?: string;
   description?: string;
   backgroundColor?: string;
+  fontColor?: string;
 }
 
 export default function Card({
@@ -15,8 +16,15 @@ export default function Card({
   title,
   description,
   backgroundColor,
+  fontColor,
 }: CardProps) {
-  const style = backgroundColor ? { backgroundColor } : undefined;
+  const style =
+    backgroundColor || fontColor
+      ? {
+          ...(backgroundColor ? { backgroundColor } : {}),
+          ...(fontColor ? { color: fontColor } : {}),
+        }
+      : undefined;
   return (
     <div className={`ui-card ${className}`.trim()} style={style}>
       {title && <h2 className="ui-card-title">{title}</h2>}
