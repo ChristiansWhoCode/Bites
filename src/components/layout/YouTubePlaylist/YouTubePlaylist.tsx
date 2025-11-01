@@ -44,8 +44,10 @@ export default function YouTubePlaylists({
   const apiKey = import.meta.env.VITE_YOUTUBE_API_KEY as string | "";
 
   useEffect(() => {
+    // If there's no API key at build-time, don't attempt the client-side fetch.
+    // We intentionally do not set an error here so the UI can render a graceful
+    // fallback (link to the channel playlists) instead of an explicit error box.
     if (!apiKey) {
-      setError("Missing YouTube API key (VITE_YOUTUBE_API_KEY).");
       return;
     }
 
@@ -90,6 +92,33 @@ export default function YouTubePlaylists({
     };
   }, [channelId, maxResults, apiKey]);
 
+  // If the API key is not set (common with build-time envs on hosting platforms),
+  // render a graceful fallback that links to the channel playlists page so the
+  // UI still works for visitors.
+  if (!apiKey) {
+    return (
+      <div className="yt-playlists yt-playlists--no-key">
+        <h3>Featured Series</h3>
+        <p>
+          Dive deeper into key themes through short, story-driven series that
+          trace the Bible's big story.
+        </p>
+        <p>
+          Playlists are disabled in this build. You can still view all series on
+          YouTube:
+        </p>
+        <a
+          className="yt-playlists__see-all"
+          href={`https://www.youtube.com/channel/${channelId}/playlists`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          See All Series
+        </a>
+      </div>
+    );
+  }
+
   if (error) return <div className="yt-playlists-error">Error: {error}</div>;
   if (loading)
     return <div className="yt-playlists-loading">Loading playlists…</div>;
@@ -114,7 +143,11 @@ export default function YouTubePlaylists({
                     // and to reduce any prefetch/embedding side-effects from some browsers/extensions.
                     e.preventDefault();
                     try {
-                      window.open(`https://www.youtube.com/playlist?list=${p.id}`, "_blank", "noopener,noreferrer");
+                      window.open(
+                        `https://www.youtube.com/playlist?list=${p.id}`,
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
                     } catch {
                       // fallback to normal navigation if window.open is blocked
                       window.location.href = `https://www.youtube.com/playlist?list=${p.id}`;
