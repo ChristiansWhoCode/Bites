@@ -1,3 +1,11 @@
+# Bites -- Bite Sized Bible
+Built using node and npm.
+
+Do a NPM install to get started
+
+Run the app up using npm run dev
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
