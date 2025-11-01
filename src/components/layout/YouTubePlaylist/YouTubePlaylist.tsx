@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import "./YouTubePlaylist.scss";
 
+console.log("All Vite env vars:", import.meta.env);
+console.log("API Key exists?", !!import.meta.env.VITE_YOUTUBE_API_KEY);
+console.log("API Key value:", import.meta.env.VITE_YOUTUBE_API_KEY);
+
 interface Playlist {
   id: string;
   title: string;
@@ -45,7 +49,7 @@ export default function YouTubePlaylists({
 
   useEffect(() => {
     if (!apiKey) {
-      setError("Missing YouTube API key (VITE_YOUTUBE_API_KEY).");
+      setError("Missing YouTube API key");
       return;
     }
 
