@@ -67,6 +67,43 @@ html {
   }
 }
 
+.yt-thumb-button {
+  border: none;
+  padding: 0px;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  max-height: 110%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__img {
+    width: "100%";
+    display: "block";
+    border-radius: 6px;
+  }
+  &__play-icon {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    opacity: 0.8;
+    display: "flex";
+    pointer-events: "none";
+    justify-content: "center";
+    &__background {
+      width: 48;
+      height: 48;
+      background: "rgba(0,0,0,0.6)";
+      border-radius: "50%";
+      display: "flex";
+      align-items: "center";
+      justify-content: "center";
+    }
+  }
+}
+
 .about-card {
   background-color: #f2d7b5 !important;
   color: #000 !important;
