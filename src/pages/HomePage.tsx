@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "../components/ui/Card/Card";
 import ContactForm from "../components/ui/ContactForm/ContactForm";
 import YouTubePlaylists from "../components/layout/YouTubePlaylist/YouTubePlaylist";
@@ -13,15 +14,8 @@ export default function HomePage() {
 
         <Card className="ui-card ui-card__video w-full">
           <div className="hero__video">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/_Rid5Cc9TEU?si=HoPhQYr_lTg-_kpG"
-              title="Bite-Sized Bible Intro"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+            {/* lazy-load the YouTube iframe only after user interaction to avoid loading player scripts */}
+            <YouTubeHero />
             <div className="cta-buttons">
               <a
                 className="btn btn__primary btn__left"
@@ -127,5 +121,75 @@ export default function HomePage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+function YouTubeHero() {
+  const [showPlayer, setShowPlayer] = useState(false);
+  const videoId = "_Rid5Cc9TEU";
+  const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  if (showPlayer) {
+    return (
+      <iframe
+        width="560"
+        height="315"
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+        title="Bite-Sized Bible Intro"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    );
+  }
+
+  return (
+    <button
+      className="yt-thumb-button"
+      onClick={() => setShowPlayer(true)}
+      aria-label="Play intro video"
+      style={{
+        border: "none",
+        padding: 0,
+        background: "none",
+        cursor: "pointer",
+      }}
+    >
+      <img
+        src={thumb}
+        alt="Play intro video"
+        style={{ width: "100%", display: "block", borderRadius: 6 }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          justifyContent: "center",
+          pointerEvents: "none",
+        }}
+      >
+        <div
+          style={{
+            width: 100,
+            height: 100,
+            background: "rgba(0,0,0,0.6)",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            fill="white"
+            aria-hidden
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </button>
   );
 }
