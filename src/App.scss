@@ -67,6 +67,17 @@ html {
   }
 }
 
+.about-card {
+  background-color: #f2d7b5 !important;
+  color: #000 !important;
+
+  @media (prefers-color-scheme: dark) {
+    /* deep, low‑contrast background and soft off‑white text for dark mode */
+    background-color: #0f1720 !important;
+    color: #e6eef6 !important;
+  }
+}
+
 .stack-on-mobile {
   @media (max-width: 768px) {
     flex-direction: column !important;

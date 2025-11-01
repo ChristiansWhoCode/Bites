@@ -54,10 +54,7 @@ export default function HomePage() {
           you short, story-driven videos that actually connect. No confusion. No
           guilt.
         </Card>
-        <Card
-          backgroundColor="#F2D7B5"
-          className="ui-card--solid two-thirds horizontal stack-on-mobile about-card"
-        >
+        <Card className="ui-card--solid two-thirds horizontal stack-on-mobile about-card">
           <img src="./Brian-Neutral.png" className="cartoon" />
           <div className="about-text">
             <h2>About Bite Sized Bible</h2>
