@@ -157,6 +157,7 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: "Jersey 10", sans-serif;
 }
 
 h2 {
@@ -249,6 +250,8 @@ ul {
 }
 .cartoon {
   max-width: 200px;
+  max-height: 400px;
+  border-radius: var(--radius-lg);
   width: 100%;
   height: auto;
   margin-bottom: -2rem;
