@@ -77,7 +77,7 @@ export default function ContactForm() {
         />
       </label>
       <label>
-        Message
+        Send Message
         <textarea
           name="message"
           value={form.message}

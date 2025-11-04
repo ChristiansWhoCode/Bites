@@ -36,27 +36,40 @@ export default function HomePage() {
             </div>
           </div>
         </Card>
-        <Card
-          title="The Bible Doesn't Have to Feel Overwhelming."
-          className="ui-card--solid"
-        >
-          Whether you&apos;ve never cracked open a Bible or get lost five verses
-          in, we&apos;ve got you. Short, simple chunks you&apos;ll actually
-          get—and maybe even enjoy. No guilt. No thee&apos;s or thou&apos;s.
-          Just one bite at a time. Whether you&aposve never openei a Bible or
-          you get stuck five verses in-we&aposve got you. Bite-Sized Bible gives
-          you short, story-driven videos that actually connect. No confusion. No
-          guilt.
+        <Card className="ui-card--solid">
+          <h2>Real Truth for Real Life</h2>
+
+          <p>Life moves fast. Your faith shouldn’t get left behind.</p>
+          <p>
+            Bite-Sized Bible gives you short, clear, Scripture-rooted messages —
+            built to meet you in real time. Morning, lunch break, late night —
+            whenever you need truth that sticks.
+          </p>
+          <p>
+            One message at a time. Always rooted in Jesus. Never watered down.
+          </p>
         </Card>
         <Card className="ui-card--solid two-thirds horizontal stack-on-mobile about-card">
           <img src="./Brian-Neutral.png" className="cartoon" />
           <div className="about-text">
-            <h2>About Bite Sized Bible</h2>
+            <h2>About Bite-Sized Bible</h2>
             <p>
-              Hi, I’m Brian Nelson. For over 20 years, I’ve been helping people
-              see how the Bible’s big story connects to everyday life.
-              Bite-Sized Bible is my way of making Scripture clear, engaging,
-              and accessible for everyone.
+              Bible teaching that fits your life — without watering it down.
+            </p>
+            <p>
+              I&apos;m Brian Nelson. I&apos;ve spent 20+ years helping people
+              see that the Bible isn&apos;t boring, confusing, or outdated —
+              it&apos;s alive, practical, and built for everyday life.
+            </p>
+            <p>
+              Bite-Sized Bible gives you clear, powerful Scripture teaching in
+              short videos you can actually keep up with — no pressure, no
+              fluff, just real truth that sticks.
+            </p>
+            <p>
+              I created Bite-Sized Bible after hearing the same thing over and
+              over: “I want to read the Bible more — I just don&apos;t know
+              where to start.” This is my answer to that.
             </p>
           </div>
         </Card>
@@ -81,13 +94,13 @@ export default function HomePage() {
             >
               YouTube
             </a>
-            {/* <a
-              href="https://facebook.com/bitesizedbible"
+            <a
+              href="https://www.facebook.com/briannelsonspeaking/"
               target="_blank"
               rel="noopener"
             >
               Facebook
-            </a> */}
+            </a>
             <a
               href="https://www.instagram.com/bdnelson63/"
               target="_blank"
@@ -102,6 +115,10 @@ export default function HomePage() {
             >
               TikTok
             </a>
+          </div>
+          <div className="mt-lg">
+            Email:{" "}
+            <a href="mailto:info@bitesizebile.org">info@bitesizebile.org</a>
           </div>
         </Card>
         <Card title="Support the Mission" className="support-card full-width">
