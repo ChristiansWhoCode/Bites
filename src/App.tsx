@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="main">
       <AppRouter>
-        <div className="header-container mb-lg">
+        <div className="header-container">
           <Header />
         </div>
       </AppRouter>

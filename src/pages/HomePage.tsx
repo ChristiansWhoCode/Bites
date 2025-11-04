@@ -116,6 +116,10 @@ export default function HomePage() {
               TikTok
             </a>
           </div>
+          <div className="mt-lg">
+            Email:{" "}
+            <a href="mailto:info@bitesizebile.org">info@bitesizebile.org</a>
+          </div>
         </Card>
         <Card title="Support the Mission" className="support-card full-width">
           <p>
